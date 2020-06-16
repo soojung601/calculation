@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var result_num="";
+
+         function add(num){
+            result_num += num.toString();
+            document.getElementById("display").value = result_num;
+            document.getElementById("add_num").value = result_num;
+            document.getElementById("minus_num").value = result_num;
+            document.getElementById("multi_num").value = result_num;
+            document.getElementById("divide_num").value = result_num;
+            document.getElementById("result_num").value = result_num;
+                }
+    </script>
+    <style>
+        .calculator{
+            width: 250px;
+            
+        }
+        #add_num, #minus_num, #multi_num, #divide_num, #result_num{
+            
+            position:absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            margin: -1px;
+            clip: rect(0,0,0,0);
+        }
+        button{
+            width:50px;
+            height:50px;
+            background-color:grey;
+        }
+        .clear{
+            width: 50px;
+            height: 50px;
+        }
+        #display{
+            height: 50px;
+            width:150px;
+            text-align:right;
+        }
+        .first{
+            position: relative;
+            height: 55px;
+        }
+        , .second, .third, .fourth, .fifth{
+            
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            position: relative;
+        }
+        form{
+            display: inline;
+        }
+        .zero {
+            width: 105px;
+        }
+        .right{
+            font-size:18px;
+            background-color: orange;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="first">
+        <input id="display" value={{result_num}}></input>
+        
+        <form action="/reset">
+            <input type="submit" value="C" class="clear">
+        </form>
+        </div>
+        <div class="second">
+        <button onclick="add(7)">7</button>
+        <button onclick="add(8)">8</button>
+        <button onclick="add(9)">9</button>
+        <form action="/add" method="POST">
+            <input name="addednum" id="add_num"></input>
+            <button type="submit" class="right">+</button>
+        </form>
+    </div>
+    <div class="third">
+        <button onclick="add(4)">4</button>
+        <button onclick="add(5)">5</button>
+        <button onclick="add(6)">6</button>
+        <form action="/minus" method="POST">
+            <input name="addednum" id="minus_num"></input>
+            <button type="submit" class="right">-</button>
+        </form>
+    </div>
+    <div class="fourth">
+        <button onclick="add(1)">1</button>
+        <button onclick="add(2)">2</button>
+        <button onclick="add(3)">3</button>
+        <form action="/multi" method="POST">
+            <input name="addednum" id="multi_num"></input>
+            <button type="submit" class="right">*</button>
+        </form>
+    </div>
+    <div class="fifth">
+        <button class="zero" onclick="add(0)">0</button>
+        <form action="/result" method="POST">
+            <input name="addednum" id="result_num"></input>
+            <button type="submit">=</button>
+        </form>
+        <form action="/divide" method="POST">
+            <input name="addednum" id="divide_num"></input>
+            <button type="submit" class="right">/</button>
+        </form>
+    </div>
+    </div>
+    
+</body>
+</html>

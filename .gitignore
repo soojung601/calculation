@@ -1,0 +1,8 @@
+.vscode/
+bin/
+lib/
+__pycache__/
+include/
+cal.gif
+cal.db
+pyvenv.cfg
